@@ -1,0 +1,138 @@
+# output file for probabilities
+output_file_prefix dumb
+
+# Select the electronic model to use 
+# Choices are:  Meyer-Miller, Miller-White
+#electronic_model Miller-White 
+electronic_model Meyer-Miller 
+#electronic_model Meyer-Miller-Centroid
+X        2
+correlated_actions  T
+correlated_angles   T
+system Burghardt 
+F      80
+F_full 80
+Y     81
+Z     80
+TH    81
+
+Hel_file	80-Hel.txt  # big_coupling_Hel.txt big_matrix_Hel.txt
+spectral_density  site-specific 
+ZPE_suck F
+
+# Set the width of the windows and zero point energy
+# variable Langer-modification paramter
+# Only useful for histogram windowing scheme
+L   0.366
+init_state dumb
+
+n_threads dumb
+
+# plotting
+plot_probs F
+plot_states F
+plot_hists F
+hold_plots F
+plot_and_hold_results F
+
+# parameters
+energy_units atomic_units 
+
+time_units femtoseconds
+
+spectral_density_file_prefix quadratic
+
+T	dumb
+n_trajs	dumb
+
+end_time 20000       # end time is "end_time" fs
+n_times	 20000       # run "n_times" times integration
+collect_interval 10  # collect info every "collect_interval" fs
+dt	    0.05
+# time step for integrating in the ode. the interval in this timestep is handled by variable timestep RK8. This allows additional tricks to be done between each RK8 interval
+#suggested value <= 0.005 for energy-conserving quasi-adiabatic dynamics
+dt_nucl  0.05
+dt_elec  0.0001
+T_gamma  500
+
+Dyg   1.04e-1
+ayg   9.53e-1
+ryg   0.0 
+Eyg   0
+
+Dye   0.174
+aye   1.05
+rye  -2.66e-1
+Eye  -1.03e-2
+
+my    73942.6
+
+Dzg   2.16
+azg   4.86e-1
+rzg   0
+Ezg   0
+
+Dze   1.00e-1
+aze   3.07
+rze   1.38e-1
+Eze  -3.53e-2
+
+mz    36812.2
+
+cg  1.01e-3  1.40e-4  -1.12e-3 1.06e-4 3.52e-4  8.83e-6  3.87e-5
+ce  2.13e-2 -4.50e-3  -3.15e-2 4.68e-3 3.75e-3 -5.77e-4 -4.85e-5
+
+
+mth    312809 
+Gyz    -1.44427e-6
+#Gyz    0
+
+w   0.6e-4   1.2e-4    1.8e-4  2.4e-4  3.0e-4   3.6e-4   4.2e-4  4.8e-4  5.e-4  6.0e-4
+cw  2.23e-6  4.47e-6  6.70e-6  8.93e-6   1.12e-5  1.34e-5  1.56e-5  1.79e-5  2.01e-5  2.23e-5
+
+mb 1.0
+
+fixid   36 46
+th0      110
+th1      160
+th2      180
+
+#coherent  no  
+Guohua F
+NAC_cap   1000000
+Off-diag T
+Mixed T
+
+#windowing model
+#window_model histogram
+window_model Ehrenfest
+
+#representation to run dynamics 
+
+#equilibration run on ground state
+#Adiabatic-ground T
+
+#adiabatic representation MM dynamics
+#Adiabatic T
+
+#diabatic representation MM dynamics
+Diabatic T
+
+#quasi-adiabatic representation MM dynamics
+#Quasi_adiabatic T
+
+#integrator type
+RK4   T
+Temperature  300
+
+#whether or not fix the dihedrals with ids of fixedid
+Flexible T
+
+#whether or not check energy conservation during the simulation
+Energy_check F
+
+#whether or not use langevin thermostat
+Langevin T
+
+#number of times for this restart, 0 for initial run
+Restart_times 0
